@@ -127,7 +127,7 @@ const Field = {
 
 const subtag = typeof $resource.tag != "undefined" ? $resource.tag : "";
 ////// 非 raw 链接的沙雕情形
-content0 = content0.indexOf("DOCTYPE html") != -1 && link0.indexOf("github.com") != -1 ? ToRaw(content0) : content0 ;
+content0 = content0.indexOf("DOCTYPE html") != -1 && link0.indexOf("github.com") != -1 ? ToRaw(content0) : base64Validate(content0) ;
 // loon插件链接
 content0 = link0.indexOf("nsloon.com/openloon/import?plugin=") != -1 ? ToLink(link0) : content0 ;
 //ends 正常使用部分，調試註釋此部分
@@ -364,6 +364,14 @@ if (typeof($resource)!=="undefined" && PProfile == 0) {
   $done({content:total})
 }
 
+
+function base64Validate(base64Str) {
+  try {
+    return Base64.decode(base64Str);
+  } catch (err) {
+    return base64Str;
+  }
+}
 
 /**
 # 以下为具体的 function
