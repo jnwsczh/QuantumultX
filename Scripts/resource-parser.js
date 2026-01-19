@@ -125,6 +125,7 @@ const Field = {
   "server" : "server_remote"
 }  
 
+const Base64 = new Base64Code();
 const subtag = typeof $resource.tag != "undefined" ? $resource.tag : "";
 ////// 非 raw 链接的沙雕情形
 content0 = content0.indexOf("DOCTYPE html") != -1 && link0.indexOf("github.com") != -1 ? ToRaw(content0) : base64Validate(content0) ;
@@ -139,7 +140,6 @@ var mark0 = para.indexOf("#") != -1 ? true : false; //是否有參數需要解�
 var Pinfo = mark0 && para1.indexOf("info=") != -1 ? para1.split("info=")[1].split("&")[0] : 0;
 var ntf_flow = 0;
 //常用量
-const Base64 = new Base64Code();
 const escapeRegExp = str => str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'); //处理特殊符号以便正则匹配使用
 var link1 = link0.split("#")[0]
 const qxpng = "https://raw.githubusercontent.com/crossutility/Quantumult-X/master/quantumult-x.png" // server sub-info link
